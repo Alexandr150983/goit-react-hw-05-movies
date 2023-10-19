@@ -1,6 +1,6 @@
 import Loader from 'components/Loader/Loader';
 import { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 const SharedLayout = lazy(() => import('components/SharedLayout/SharedLayout'));
 const HomePage = lazy(() => import('pages/HomePage'));
 const MoviesPage = lazy(() => import('pages/MoviesPage'));
@@ -19,7 +19,7 @@ export const App = () => {
             <Route path="cast" element={<CastPage />} />
             <Route path="reviews" element={<ReviewsPage />} />
           </Route>
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </Suspense>

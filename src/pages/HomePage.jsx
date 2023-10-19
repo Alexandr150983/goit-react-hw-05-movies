@@ -1,8 +1,8 @@
 import { fetchTrendingMovies } from 'services/Api';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessadge';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -28,13 +28,7 @@ const HomePage = () => {
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
       <h1>Trending Today</h1>
-      <ul>
-        {trendingMovies.map(movie => (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <MoviesList movies={trendingMovies} />
     </div>
   );
 };

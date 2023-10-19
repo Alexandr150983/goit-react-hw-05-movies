@@ -62,7 +62,6 @@ const MovieDetailsPage = () => {
         alt="poster"
       />
       <Overview>
-        {' '}
         <strong>Overview:</strong> {movie.overview}
       </Overview>
       <Genres>
